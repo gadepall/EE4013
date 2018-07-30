@@ -162,9 +162,9 @@ breaklines=true
 \vspace{3cm}
 
 \title{
-%\logo{
+\logo{
 Flashing STM32 using STLINK
-%}
+}
 }%
 \author{Alok Ranjan Kesari and G. V. V. Sharma% 
 %\author{Alok Ranjan Kesari$^{1}$ and Dr. G. V. V. Sharma$^{2}$% 
@@ -228,7 +228,7 @@ sudo make install
 %
 
 \section{Hardware Setup}
-Connect the STLINK to a USB port of the Raspberry Pi.  The hardware connections between the STLINK and STM32 are available in Table \ref{table:pins}. See Fig. \ref{fig:stm32} as well.
+Connect the STLINK to a USB port of the Raspberry Pi.  The hardware connections between the STLINK and STM32 are available in Table \ref{table:pins}. See Fig. \ref{fig:stm_black} as well for the {\em black pill}  board.  Fig. \ref{fig:stm_blue} shows the {\em blue pill} board.
 \begin{table}[!h]
 \centering
 \input{./figs/pins.tex}
@@ -237,11 +237,19 @@ Connect the STLINK to a USB port of the Raspberry Pi.  The hardware connections 
 \end{table}
 \begin{figure}[!h]
 \centering
-\includegraphics[width=\columnwidth]{./figs/stm.eps}
-\caption{STM32F103C8T6 Pin Configuration}
-\label{fig:stm32}
+\includegraphics[width=\columnwidth]{./figs/stm_black.eps}
+\caption{STM32F103C8T6 Pin Configuration (Black Pill)}
+\label{fig:stm_black}
 \end{figure}
 %
+\begin{figure}[!h]
+\centering
+\includegraphics[width=\columnwidth]{./figs/stm_blue.eps}
+\caption{STM32F103C8T6 Pin Configuration (Blue Pill)}
+\label{fig:stm_blue}
+\end{figure}
+%
+
 \section{Make File and Flashing}
 \begin{enumerate}[1.]
 \item Communicate with the STM32 board
@@ -261,7 +269,7 @@ cp blink.c main.c
 sudo make
 cp main.bin cd ~/sandbox/openocd
 \end{lstlisting}
-\item Make sure that the two pin caps beside the reset button are non-aligned.
+\item Make sure that the two pin caps (Boot0 and Boot1) beside the reset button are non-aligned.
 \item Go to the telnet terminal 
 \begin{lstlisting}
 reset halt
@@ -269,22 +277,23 @@ flash write_image erase main.bin 0x08000000
 reset run
 \end{lstlisting}
 \item Align the two pin caps beside the reset button. Press the reset button.  You should see an LED blinking.
-\item Modify the blinking part of the code in main.c in the STM32F103C8T6 directory as
-\begin{lstlisting}
- while (1)
-  {
-    /* Turn on led connected to PC.4 pin */
-//    GPIO_SetBits(GPIOC, GPIO_Pin_13);
-    /* Insert delay */
-//    Delay(0xAFFFFF);
-
-    /* Turn off led connected to PC.4 pin */
-    GPIO_ResetBits(GPIOC, GPIO_Pin_13);
-    /* Insert delay */
-//   Delay(0xAFFFFF);
-  }
-\end{lstlisting}
-and flash the .bin file to the STM32.  What do you observe?
+\item Modify main.c in the STM32F103C8T6 directory to keep the LED on.
+%as
+%\begin{lstlisting}
+% while (1)
+%  {
+%    /* Turn on led connected to PC.4 pin */
+%//    GPIO_SetBits(GPIOC, GPIO_Pin_13);
+%    /* Insert delay */
+%//    Delay(0xAFFFFF);
+%
+%    /* Turn off led connected to PC.4 pin */
+%    GPIO_ResetBits(GPIOC, GPIO_Pin_13);
+%    /* Insert delay */
+%//   Delay(0xAFFFFF);
+%  }
+%\end{lstlisting}
+%and flash the .bin file to the STM32.  What do you observe?
 \end{enumerate}
 
 \end{document}

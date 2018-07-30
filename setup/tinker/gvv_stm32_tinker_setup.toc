@@ -3,5 +3,5 @@
 \contentsline {subsection}{\numberline {2.1} Install Necessary Packages}{1}
 \contentsline {subsection}{\numberline {2.2}Installing Openocd and Programming Environment}{1}
 \contentsline {subsection}{\numberline {2.3}Configure Openocd}{1}
-\contentsline {section}{\numberline {3}Hardware Setup}{1}
+\contentsline {section}{\numberline {3}Hardware Setup}{2}
 \contentsline {section}{\numberline {4}Make File and Flashing}{2}
