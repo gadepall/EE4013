@@ -1,0 +1,4 @@
+\contentsline {section}{\numberline {I}Components}{1}
+\contentsline {section}{\numberline {II}Hardware Setup}{1}
+\contentsline {section}{\numberline {III}Software Setup}{1}
+\contentsline {subsection}{\numberline {III-A}Installation and Configuration}{1}
