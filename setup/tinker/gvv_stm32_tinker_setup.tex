@@ -264,8 +264,7 @@ telnet localhost 4444
 This will establish a connection between the RPI and STM32
 \item Open another new terminal and type
 \begin{lstlisting}
-cd ~/sandbox/STM32F103C8T6
-cp blink.c main.c
+cp ~/sandbox/STM32F103C8T6/examples/blink.c ~/sandbox/STM32F103C8T6/main.c
 sudo make
 cp main.bin cd ~/sandbox/openocd
 \end{lstlisting}
