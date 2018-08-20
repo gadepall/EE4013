@@ -1,0 +1,43 @@
+
+%
+%The 7447 IC helps in displaying decimal numbers on the seven segment display.  The $\bar{a}-\bar{g}$, pins of the 7447 IC are connected to the $a-g$ pins of the display. $V_{cc}$ should be connected to a 5V power source. The input pins of the decoder are A,B,C and D, with A being the lowest significant bit (LSB) and D being the most significant bit (MSB).  For example, the number 5 is visible on the display when the A,B,C and D inputs are the following.
+%\begin{center}
+%	\begin{tabular}{|c|c|c|c|c|}
+%\hline
+%D & C & B & A & Decimal
+%\\ \hline
+%0 & 1 & 0 & 1 & 5
+%\\
+%\hline
+%\end{tabular}
+%\end{center}
+%
+%%
+%\begin{figure}
+%\begin{center}
+%\includegraphics[width=\columnwidth]{./figs/7447IC}
+%\end{center}
+%\caption{}
+%\label{}
+%\end{figure}
+%
+%%\begin{center}
+%	%\includegraphics[scale=1.5]{7447IC}
+%%\end{center}
+%
+%%
+%\begin{problem}
+%	Connect the 7447 IC decoder $\bar{a}-\bar{g}$ pins to the $a-g$ pins of the display respectively.
+%\end{problem}
+%\begin{problem}
+%	Connect the $V_{cc}$ and GND pins of the decoder to the 5V supply and GND pins of the breadboard.
+%\end{problem}
+%\begin{problem}
+%	Connect the A,B,C,D pins to pins in the GND extreme segment of the breadboard.  What do you observe.
+%\end{problem}
+%\begin{problem}
+%	Now remove the D pin from the breadboard and observe the display output.
+%\end{problem}
+%\begin{problem}
+%	Generate a table with A,B,C,D inputs and the equivalent decimal number output.
+%\end{problem}
