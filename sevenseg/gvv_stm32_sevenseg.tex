@@ -420,7 +420,11 @@ GPIOB->BSRR = (1<<3); // (Led OFF)
 Write a program to take a 4-bit BCD as input from hardware (GND or VDD) and show the next number on the seven segment display.
 \end{problem}
 %
-
+\solution The following program takes 4 bits as input from pins PB12-PB15 and displays the output on a seven segment display. The next number
+can be displayed by slightly modifying the code.
+\begin{lstlisting}
+https://github.com/gadepall/STM32F103C8T6/blob/master/examples/bin2dec_example.c
+\end{lstlisting}
 \end{document}
 
 
