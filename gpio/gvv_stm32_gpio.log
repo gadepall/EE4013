@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=latex 2018.7.30)  19 AUG 2018 18:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=latex 2018.7.30)  21 AUG 2018 11:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -924,14 +924,26 @@ Overfull \vbox (1.51999pt too high) detected at line 224
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[2] (./gvv_stm32_gpio.aux) ) 
+(./figs/gpio_input.tex
+Overfull \hbox (0.79768pt too wide) in paragraph at lines 206--206
+ \OT1/txr/bx/n/10 CNF1| 
+ []
+
+
+Overfull \hbox (0.79768pt too wide) in paragraph at lines 208--208
+ \OT1/txr/bx/n/10 CNF0| 
+ []
+
+) [2] [3
+
+] (./gvv_stm32_gpio.aux) ) 
 Here is how much of TeX's memory you used:
- 16326 strings out of 494946
- 308960 string characters out of 6181058
- 372520 words of memory out of 5000000
- 19290 multiletter control sequences out of 15000+600000
+ 16330 strings out of 494946
+ 309030 string characters out of 6181058
+ 391520 words of memory out of 5000000
+ 19291 multiletter control sequences out of 15000+600000
  68395 words of font info for 169 fonts, out of 8000000 for 9000
  17 hyphenation exceptions out of 8191
- 55i,14n,54p,395b,1178s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,14n,54p,395b,1536s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on gvv_stm32_gpio.dvi (2 pages, 18088 bytes).
+Output written on gvv_stm32_gpio.dvi (3 pages, 23064 bytes).

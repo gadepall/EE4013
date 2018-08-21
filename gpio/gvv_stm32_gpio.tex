@@ -217,7 +217,7 @@ Connect the STLINK to a USB port of the Raspberry Pi.  Fig. \ref{fig:stm_blue} s
 \label{fig:stm_blue}
 \end{figure}
 
-\section{Software}
+\section{GPIO Output}
 %
 \begin{problem}
 Execute 
@@ -286,4 +286,41 @@ GPIOB->BSRR = GPIO_BSRR_BR4;
 \begin{problem}
 Modify your program to control an LED using PA2.
 \end{problem}
+\section{GPIO Input}
+\begin{problem}
+Connect PB7 to GND and execute the following code
+\begin{lstlisting}
+https://github.com/gadepall/STM32F103C8T6/blob/master/examples/gpio_input_example.c
+\end{lstlisting}
+\end{problem}
+\begin{problem}
+What does the following instruction do?
+\begin{lstlisting}
+GPIOB->CRL = 0x80030000;	
+\end{lstlisting}
+\end{problem}
+\solution
+This instruction declares PB7 as an input pin.  0x8=0b1000.  According to Table \ref{table:gpio_input}, the mode 00 is used only for
+input and the first two bits 10 are used for pull-up/pull-down.
+\begin{table}[!h]
+\centering
+\small
+%\resizebox{\textwidth}{!}{
+\input{./figs/gpio_input.tex}
+%}
+\caption{}
+\label{table:gpio_input}
+\end{table}
+\begin{problem}
+Explain the following instruction.
+\begin{lstlisting}
+#define B7	0x0080
+if (((GPIOB->IDR & B7) == 0 ))  
+	GPIOB->BRR = (1<<4); //PB4 = 0 (Led ON)		
+else
+	GPIOB->BSRR = (1<<4); //PB4 = 1 (Led OFF)					
+\end{lstlisting}
+\end{problem}
+\solution The instruction checks whether the 8th bit of GPIOB$->$ IDR, i.e. the input from PB7  is 0.  If so, then the LED connected to PB4
+should be ON. 
 \end{document}

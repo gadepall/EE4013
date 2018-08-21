@@ -1,3 +1,4 @@
 \contentsline {section}{\numberline {1}Components}{1}
 \contentsline {section}{\numberline {2}Hardware Setup}{1}
-\contentsline {section}{\numberline {3}Software}{1}
+\contentsline {section}{\numberline {3}GPIO Output}{1}
+\contentsline {section}{\numberline {4}GPIO Input}{2}
