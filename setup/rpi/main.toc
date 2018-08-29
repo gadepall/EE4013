@@ -1,5 +1,0 @@
-\contentsline {section}{\numberline {1}Components}{1}
-\contentsline {section}{\numberline {2}Hardware Setup}{1}
-\contentsline {section}{\numberline {3}Software Setup}{1}
-\contentsline {subsection}{\numberline {3.1}Installation and Configuration of OpenOCD}{1}
-\contentsline {section}{\numberline {4}Make File and Flashing}{2}

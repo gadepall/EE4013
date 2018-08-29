@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=latex 2018.7.30)  26 AUG 2018 11:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=latex 2018.7.30)  27 AUG 2018 13:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1026,15 +1026,19 @@ cks in the
 
 (./figs/clocks.tex
 \gnumericColD=\skip75
-) (./figs/systick_reg.tex)
-LaTeX Font Info:    Try loading font information for OML+txr on input line 326.
+) (./figs/systick_pins.tex)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+(./figs/systick_reg.tex)
+LaTeX Font Info:    Try loading font information for OML+txr on input line 336.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omltxr.fd
 File: omltxr.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `OML/txr/m/n' in size <12> not available
-(Font)              Font shape `OML/txmi/m/it' tried instead on input line 326.
+(Font)              Font shape `OML/txmi/m/it' tried instead on input line 336.
 
  [1
 
@@ -1043,57 +1047,29 @@ LaTeX Font Info:    Font shape `OML/txr/m/n' in size <12> not available
 File: ./figs/systick_ctrl.eps Graphic file (type eps)
 
 <./figs/systick_ctrl.eps>
-Underfull \hbox (badness 4505) in paragraph at lines 357--358
+Underfull \hbox (badness 4505) in paragraph at lines 367--368
 \OT1/txr/bx/n/12 Solution: \OT1/txr/m/n/12 CLK-SOURCE = 1 re-sults in the
  []
 
-
-LaTeX Warning: Reference `fig:sevenseg' on page 2 undefined on input line 409.
-
-File: ./figs/stm_blue.eps Graphic file (type eps)
-<./figs/stm_blue.eps>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-(./figs/stm_ssd.tex
-\gnumericColE=\skip76
-\gnumericColF=\skip77
-\gnumericColG=\skip78
-\gnumericColH=\skip79
-\gnumericColI=\skip80
-) (./figs/sevenseg12.tex) [2]
-LaTeX Font Info:    Try loading font information for OMS+txr on input line 493.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/txfonts/omstxr.fd
-File: omstxr.fd 2000/12/15 v3.1
-)
-LaTeX Font Info:    Font shape `OMS/txr/m/n' in size <12> not available
-(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 493.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 508.
- [3
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 518.
+[2
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 508.
-
-(./gvv_stm32_timer.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 508.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 508.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 518.
+ (./gvv_stm32_timer.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 518.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 518.
 Package rerunfilecheck Info: File `gvv_stm32_timer.out' has not changed.
-(rerunfilecheck)             Checksum: 4CC31872CF0F6A3DFFDAA841CC328776;179.
-
-
-LaTeX Warning: There were undefined references.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 508.
+(rerunfilecheck)             Checksum: C1EC1C3CCA18D7011A32CC6CA5593A6B;93.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 518.
  ) 
 Here is how much of TeX's memory you used:
- 21233 strings out of 494946
- 382768 string characters out of 6181058
- 529153 words of memory out of 5000000
- 24133 multiletter control sequences out of 15000+600000
- 68785 words of font info for 173 fonts, out of 8000000 for 9000
+ 21015 strings out of 494946
+ 378611 string characters out of 6181058
+ 501153 words of memory out of 5000000
+ 23922 multiletter control sequences out of 15000+600000
+ 66676 words of font info for 165 fonts, out of 8000000 for 9000
  17 hyphenation exceptions out of 8191
- 55i,13n,54p,412b,1841s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,13n,54p,412b,1342s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on gvv_stm32_timer.dvi (3 pages, 42532 bytes).
+Output written on gvv_stm32_timer.dvi (2 pages, 24740 bytes).
