@@ -1,2 +1,3 @@
 \contentsline {section}{\numberline {1}Components}{1}{section.1}
 \contentsline {section}{\numberline {2}Systick timer}{1}{section.2}
+\contentsline {section}{\numberline {3}TIM1}{2}{section.3}

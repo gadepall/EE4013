@@ -294,7 +294,14 @@ List all available clocks in the STM32F103C8T6 blue pill.
 \begin{problem}
 List all the available timers in the STM32F103C8T6 blue pill.
 \end{problem}
-\solution  See table \ref{table:timers}
+\solution  See Table \ref{table:stm32_timers}
+\begin{table}[!h]
+\footnotesize
+\input{./figs/stm32_timers.tex}
+\caption{}
+\label{table:stm32_timers}
+\end{table}
+
 \section{Systick timer}
 The Systick timer is the default timer available on all ARM chips. 
 \begin{problem}
@@ -350,7 +357,6 @@ while(!(SysTick->CTRL & 0x00010000));
 \end{problem}
 \solution Fig. \ref{fig:systick_ctrl} shows the SysTick CTRL register.    0x00010000 is used in the above command to mask all the bits except for bit 16, which
 is the COUNTFLAG.  The \textbf{while} loop will stop once COUNTFLAG = 0. The while loop is used for the delay.
-will stop once 
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=\columnwidth]{./figs/systick_ctrl}
@@ -377,9 +383,60 @@ Obtain a delay of 1 second using the 1 MHz clock.
 \end{problem}
 \section{TIM1}
 \begin{problem}
-List the registers in TIM1.
+Make the connections according to Table \ref{table:systick_pins}.  Execute the following program
+\begin{lstlisting}
+https://github.com/gadepall/STM32F103C8T6/blob/master/examples/timer1_blink.c
+\end{lstlisting}
+\end{problem}
+\begin{problem}
+Enable Timer1 through RCC.
 \end{problem}
 \solution 
+\begin{lstlisting}
+RCC->APB2ENR |= RCC_APB2ENR_TIM1EN;  
+\end{lstlisting}
+\begin{problem}
+Select the HSI clock of 8 MHz as TIM1 clock.
+\end{problem}
+\solution 
+\begin{lstlisting}
+TIM1->SMCR  = 0;
+\end{lstlisting}
+\begin{problem}
+Make TIM1 clock = 2 KHz.
+\end{problem}
+\solution Through the following command,
+\begin{lstlisting}
+TIM1->PSC	= 3999;
+\end{lstlisting}
+\begin{equation}
+TIM1\_CLK = \frac{HSI\_CLK}{TIM1->PSC + 1} = \frac{8000000}{4000}
+\end{equation}
+\begin{problem}
+Make TIM1 count 1000 cycles of the 2 KHz TIM1 clock.
+\end{problem}
+\solution 
+\begin{lstlisting}
+TIM1->ARR 	= 999;	
+\end{lstlisting}
+\begin{problem}
+What do the following instructions do?
+\begin{lstlisting}
+if(TIM1->SR & 0x0001)//check if ARR count complete
+{
+	TIM1->SR &= ~0x0001;//clear status register SR
+	GPIOA->ODR ^= (1 << 1);//blink LED through PA1
+}
+\end{lstlisting}
+\solution Once the TIM1 counter counts from 0 to TIM1$->$ARR=999, it resets and starts counting again to 999.  At the time of
+reset, the LSB of TIM1$->$SR = 1.  The \textbf{if} command checks this and when this condition is satisfied, TIM1$->$SR is cleared
+and PA1 is toggled.  This process keeps repeating. This results in a PA1  output of 1 and 0 with frequency
+\begin{multline}
+\frac{HSI\_CLK}{\brak{TIM1->PSC + 1}\brak{TIM1->ARR + 1}} 
+\\
+= \frac{8000000}{4000\times 1000} = 2 \text{ Hz}
+\end{multline}
+\end{problem}
 %\section{Hardware}
 %
 %%\subsection{Seven Segment Display}

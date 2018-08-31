@@ -123,12 +123,11 @@
 \setlongtables
 
 \setlength\gnumericTableWidth{%
-	37pt+%
+	69pt+%
 	55pt+%
-	42pt+%
-	66pt+%
+	98pt+%
 0pt}
-\def\gumericNumCols{4}
+\def\gumericNumCols{3}
 \setlength\gnumericTableWidthComplete{\gnumericTableWidth+%
          \tabcolsep*\gumericNumCols*2+\arrayrulewidth*\gumericNumCols}
 \ifthenelse{\lengthtest{\gnumericTableWidthComplete > \linewidth}}%
@@ -146,16 +145,14 @@
 %%                                                                  %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\ifthenelse{\isundefined{\gnumericColA}}{\newlength{\gnumericColA}}{}\settowidth{\gnumericColA}{\begin{tabular}{@{}p{37pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColA}}{\newlength{\gnumericColA}}{}\settowidth{\gnumericColA}{\begin{tabular}{@{}p{69pt*\gnumericScale}@{}}x\end{tabular}}
 \ifthenelse{\isundefined{\gnumericColB}}{\newlength{\gnumericColB}}{}\settowidth{\gnumericColB}{\begin{tabular}{@{}p{55pt*\gnumericScale}@{}}x\end{tabular}}
-\ifthenelse{\isundefined{\gnumericColC}}{\newlength{\gnumericColC}}{}\settowidth{\gnumericColC}{\begin{tabular}{@{}p{42pt*\gnumericScale}@{}}x\end{tabular}}
-\ifthenelse{\isundefined{\gnumericColD}}{\newlength{\gnumericColD}}{}\settowidth{\gnumericColD}{\begin{tabular}{@{}p{66pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColC}}{\newlength{\gnumericColC}}{}\settowidth{\gnumericColC}{\begin{tabular}{@{}p{98pt*\gnumericScale}@{}}x\end{tabular}}
 
 \begin{tabular}[c]{%
 	b{\gnumericColA}%
 	b{\gnumericColB}%
 	b{\gnumericColC}%
-	b{\gnumericColD}%
 	}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -166,73 +163,101 @@
 %%  the first, last or every page. Use \multicolumn if you want.    %%
 
 %%  Header for the first page.                                      %%
-%	\multicolumn{4}{c}{The First Header} \\ \hline 
+%	\multicolumn{3}{c}{The First Header} \\ \hline 
 %	\multicolumn{1}{c}{colTag}	%Column 1
 %	&\multicolumn{1}{c}{colTag}	%Column 2
-%	&\multicolumn{1}{c}{colTag}	%Column 3
 %	&\multicolumn{1}{c}{colTag}	\\ \hline %Last column
 %	\endfirsthead
 
 %%  The running header definition.                                  %%
 %	\hline
-%	\multicolumn{4}{l}{\ldots\small\slshape continued} \\ \hline
+%	\multicolumn{3}{l}{\ldots\small\slshape continued} \\ \hline
 %	\multicolumn{1}{c}{colTag}	%Column 1
 %	&\multicolumn{1}{c}{colTag}	%Column 2
-%	&\multicolumn{1}{c}{colTag}	%Column 3
 %	&\multicolumn{1}{c}{colTag}	\\ \hline %Last column
 %	\endhead
 
 %%  The running footer definition.                                  %%
 %	\hline
-%	\multicolumn{4}{r}{\small\slshape continued\ldots} \\
+%	\multicolumn{3}{r}{\small\slshape continued\ldots} \\
 %	\endfoot
 
 %%  The ending footer definition.                                   %%
-%	\multicolumn{4}{c}{That's all folks} \\ \hline 
+%	\multicolumn{3}{c}{That's all folks} \\ \hline 
 %	\endlastfoot
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\hhline{|-|-|-|-}
+\hhline{|-|-|-}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\centering}\gnumbox{\textbf{Clock}}}
+	{\gnumericPB{\centering}\textbf{Timer}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\centering}\gnumbox{\textbf{Location}}}
+	{\gnumericPB{\centering}\textbf{Type}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\centering}\gnumbox{\textbf{Type}}}
-	&\multicolumn{1}{p{\gnumericColD}|}%
-	{\gnumericPB{\centering}\gnumbox{\textbf{Frequency}}}
+	{\gnumericPB{\centering}Counter Resolution}
 \\
-\hhline{|----|}
+\hhline{|---|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\centering}\gnumbox{HSI}}
+	{\gnumericPB{\centering}Systick}
 	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\centering}\gnumbox{Internal}}
+	{\gnumericPB{\centering}Default}
 	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\centering}\gnumbox{RC}}
-	&\multicolumn{1}{p{\gnumericColD}|}%
-	{\gnumericPB{\centering}\gnumbox{8Mhz}}
+	{\gnumericPB{\centering}24 bit}
 \\
-\hhline{|----|}
+\hhline{|---|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\centering}\gnumbox{LSI}}
+	{\gnumericPB{\centering}Independent}
 	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\centering}\gnumbox{Internal}}
+	{\gnumericPB{\centering}Watchdog}
 	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\centering}\gnumbox{RC}}
-	&\multicolumn{1}{p{\gnumericColD}|}%
-	{\gnumericPB{\centering}\gnumbox{32.768 kHz}}
+	{\gnumericPB{\centering}12 bit}
 \\
-\hhline{|----|}
+\hhline{|---|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\centering}\gnumbox{HSE}}
+	{\gnumericPB{\centering}Window}
 	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\centering}\gnumbox{External}}
+	{\gnumericPB{\centering}Watchdog}
 	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\centering}\gnumbox{Crystal}}
-	&\multicolumn{1}{p{\gnumericColD}|}%
-	{\gnumericPB{\centering}\gnumbox{8Mhz}}
+	{\gnumericPB{\centering}7 bit}
 \\
-\hhline{|-|-|-|-|}
+\hhline{|---|}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\centering}TIM1}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\centering}Advanced}
+	&\multicolumn{1}{p{\gnumericColC}|}%
+	{\setlength{\gnumericMultiRowLength}{0pt}%
+	 \addtolength{\gnumericMultiRowLength}{\gnumericColC}%
+	 \multirow{4}[2]{\gnumericMultiRowLength}{\parbox{\gnumericMultiRowLength}{%
+	 \gnumericPB{\centering}16 bit}}}
+\\
+\hhline{|--|~}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\centering}TIM2}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\setlength{\gnumericMultiRowLength}{0pt}%
+	 \addtolength{\gnumericMultiRowLength}{\gnumericColB}%
+	 \multirow{3}[1]{\gnumericMultiRowLength}{\parbox{\gnumericMultiRowLength}{%
+	 \gnumericPB{\centering}General Purpose}}}
+	&\multicolumn{1}{p{\gnumericColC}|}%
+	{}
+\\
+\hhline{|-|~~}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\centering}TIM3}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{}
+	&\multicolumn{1}{p{\gnumericColC}|}%
+	{}
+\\
+\hhline{|-|~~}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\centering}TIM4}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{}
+	&\multicolumn{1}{p{\gnumericColC}|}%
+	{}
+\\
+\hhline{|-|-|-|}
 \end{tabular}
 
 \ifthenelse{\isundefined{\languageshorthands}}{}{\languageshorthands{\languagename}}
