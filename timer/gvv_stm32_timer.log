@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=latex 2018.7.30)  31 AUG 2018 21:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=latex 2018.7.30)  6 SEP 2018 14:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1026,21 +1026,22 @@ cks in the
 
 (./figs/clocks.tex
 \gnumericColD=\skip75
-) (./figs/stm32_timers.tex)
+)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-(./figs/systick_pins.tex) (./figs/systick_reg.tex)
+(./figs/stm32_timers.tex)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[1
+(./figs/systick_pins.tex) [1
 
 
-]
+] (./figs/systick_reg.tex)
 LaTeX Font Info:    Try loading font information for OML+txr on input line 347.
 
- (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omltxr.fd
+
+(/usr/share/texlive/texmf-dist/tex/latex/txfonts/omltxr.fd
 File: omltxr.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `OML/txr/m/n' in size <12> not available
@@ -1053,34 +1054,51 @@ Underfull \hbox (badness 4505) in paragraph at lines 377--378
 \OT1/txr/bx/n/12 Solution: \OT1/txr/m/n/12 CLK-SOURCE = 1 re-sults in the
  []
 
-LaTeX Font Info:    Try loading font information for OMS+txr on input line 396.
+LaTeX Font Info:    Try loading font information for OMS+txr on input line 397.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omstxr.fd
 File: omstxr.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `OMS/txr/m/n' in size <12> not available
-(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 396.
- [2]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 583.
- [3
+(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 397.
+File: ./figs/smcr.eps Graphic file (type eps)
+ <./figs/smcr.eps>
+File: ./figs/cr1.eps Graphic file (type eps)
 
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 583.
+<./figs/cr1.eps> [2]
+File: ./figs/psc.eps Graphic file (type eps)
+ <./figs/psc.eps>
+File: ./figs/rcr.eps Graphic file (type eps)
+ <./figs/rcr.eps>
+Underfull \hbox (badness 10000) in paragraph at lines 504--505
+[][][][]\OT1/txr/bx/n/12 Problem 3.11. []\OT1/txr/m/n/12 What is the func-tion 
+of
+ []
 
-(./gvv_stm32_timer.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 583.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 583.
+File: ./figs/sr.eps Graphic file (type eps)
+<./figs/sr.eps> [3]
+File: ./figs/cr2.eps Graphic file (type eps)
+ <./figs/cr2.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 718.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 718.
+ (./gvv_stm32_timer.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 718.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 718.
 Package rerunfilecheck Info: File `gvv_stm32_timer.out' has not changed.
-(rerunfilecheck)             Checksum: 70BC435FF52A6F4922BCC88A9652D7E6;132.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 583.
+(rerunfilecheck)             Checksum: 163471C3681738B20B1DBDF52F99909C;349.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 718.
  ) 
 Here is how much of TeX's memory you used:
- 21067 strings out of 494946
- 379332 string characters out of 6181058
- 537153 words of memory out of 5000000
- 23968 multiletter control sequences out of 15000+600000
+ 21107 strings out of 494946
+ 379774 string characters out of 6181058
+ 534153 words of memory out of 5000000
+ 24002 multiletter control sequences out of 15000+600000
  66676 words of font info for 165 fonts, out of 8000000 for 9000
  17 hyphenation exceptions out of 8191
- 55i,14n,54p,412b,1342s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,14n,54p,540b,1342s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on gvv_stm32_timer.dvi (3 pages, 36880 bytes).
+Output written on gvv_stm32_timer.dvi (4 pages, 58148 bytes).

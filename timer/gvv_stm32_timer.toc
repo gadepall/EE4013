@@ -1,3 +1,7 @@
 \contentsline {section}{\numberline {1}Components}{1}{section.1}
 \contentsline {section}{\numberline {2}Systick timer}{1}{section.2}
 \contentsline {section}{\numberline {3}TIM1}{2}{section.3}
+\contentsline {section}{\numberline {4}TIM2}{3}{section.4}
+\contentsline {section}{\numberline {5}Master-Slave Configuration}{4}{section.5}
+\contentsline {subsection}{\numberline {5.1}Blink}{4}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Decade Counter}{4}{subsection.5.2}

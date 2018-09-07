@@ -288,7 +288,7 @@ List all available clocks in the STM32F103C8T6 blue pill.
 \solution See Table \ref{table:clocks}.
 \begin{table}[!h]
 \input{./figs/clocks.tex}
-\caption{}
+\caption{STM32F103C8T6 Clock Types}
 \label{table:clocks}
 \end{table}
 \begin{problem}
@@ -298,7 +298,7 @@ List all the available timers in the STM32F103C8T6 blue pill.
 \begin{table}[!h]
 \footnotesize
 \input{./figs/stm32_timers.tex}
-\caption{}
+\caption{STM32F103C8T6 Timer Types.}
 \label{table:stm32_timers}
 \end{table}
 
@@ -310,14 +310,14 @@ Make connections as shown in Table \ref{table:systick_pins}.
 \begin{table}[!h]
 \footnotesize
 \input{./figs/systick_pins.tex}
-\caption{}
+\caption{Pin Connections}
 \label{table:systick_pins}
 \end{table}
 
 \begin{problem}
 Execute the program in 
 \begin{lstlisting}
-https://github.com/gadepall/STM32F103C8T6/blob/master/examples/blink_systick.c
+https://github.com/gadepall/STM32F103C8T6/blob/master/examples/timer/blink_systick.c
 \end{lstlisting}
 \end{problem}
 \begin{problem}
@@ -338,7 +338,7 @@ List the SysTick registers.
 \begin{table}[!h]
 \footnotesize
 \input{./figs/systick_reg.tex}
-\caption{}
+\caption{Systick Registers}
 \label{table:systick_reg}
 \end{table}
 \begin{problem}
@@ -361,7 +361,7 @@ is the COUNTFLAG.  The \textbf{while} loop will stop once COUNTFLAG = 0. The whi
 \begin{center}
 \includegraphics[width=\columnwidth]{./figs/systick_ctrl}
 \end{center}
-\caption{}
+\caption{Control Register (CTRL)}
 \label{fig:systick_ctrl}
 \end{figure}
 \begin{problem}
@@ -385,10 +385,11 @@ Obtain a delay of 1 second using the 1 MHz clock.
 \begin{problem}
 Make the connections according to Table \ref{table:systick_pins}.  Execute the following program
 \begin{lstlisting}
-https://github.com/gadepall/STM32F103C8T6/blob/master/examples/timer1_blink.c
+https://github.com/gadepall/STM32F103C8T6/blob/master/examples/timer/timer1_blink.c
 \end{lstlisting}
 \end{problem}
 \begin{problem}
+\label{prob:APB2_TIM1}
 Enable Timer1 through RCC.
 \end{problem}
 \solution 
@@ -398,10 +399,30 @@ RCC->APB2ENR |= RCC_APB2ENR_TIM1EN;
 \begin{problem}
 Select the HSI clock of 8 MHz as TIM1 clock.
 \end{problem}
-\solution 
+\solution See Fig.  \ref{fig:smcr} for register. SMS=000 implies that the TIM1 will be controlled by the internal clock.
 \begin{lstlisting}
 TIM1->SMCR  = 0;
 \end{lstlisting}
+\begin{figure}[!h]
+\includegraphics[width=\columnwidth]{./figs/smcr.eps}
+\caption{Slave Mode Control Register (SMCR)}
+\label{fig:smcr}
+\end{figure}
+\begin{problem}
+What does the following instruction do?
+\begin{lstlisting}
+TIM1->CR1 	= 0x0001;
+\end{lstlisting}
+\end{problem}
+\solution Fig. \ref{fig:cr1} shows the control register 1 (CR1). CEN=1 enables the counter.
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=\columnwidth]{./figs/cr1.eps}
+\end{center}
+\caption{Control Register 1 (CR1)}
+\label{fig:cr1}
+\end{figure}
+
 \begin{problem}
 Make TIM1 clock = 2 KHz.
 \end{problem}
@@ -412,6 +433,17 @@ TIM1->PSC	= 3999;
 \begin{equation}
 TIM1\_CLK = \frac{HSI\_CLK}{TIM1->PSC + 1} = \frac{8000000}{4000}
 \end{equation}
+Fig. \ref{fig:psc} shows the TIM1$->$PSC (prescalar) register.
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=\columnwidth]{./figs/psc.eps}
+\end{center}
+\caption{Prescalar (PSC)}
+\label{fig:psc}
+\end{figure}
+\begin{problem}
+What is the maximum value that can be stored in TIM1$->$PSC?
+\end{problem}
 \begin{problem}
 Make TIM1 count 1000 cycles of the 2 KHz TIM1 clock.
 \end{problem}
@@ -419,6 +451,7 @@ Make TIM1 count 1000 cycles of the 2 KHz TIM1 clock.
 \begin{lstlisting}
 TIM1->ARR 	= 999;	
 \end{lstlisting}
+Like the PSC, the ARR (auto reload register) is also of length 16 bits and used for factoring the clock.
 \begin{problem}
 What do the following instructions do?
 \begin{lstlisting}
@@ -437,6 +470,108 @@ and PA1 is toggled.  This process keeps repeating. This results in a PA1  output
 = \frac{8000000}{4000\times 1000} = 2 \text{ Hz}
 \end{multline}
 \end{problem}
+\begin{problem}
+How would you use the repetition counter (RCR) to do the above?
+\end{problem}
+\solution The following instructions
+\begin{lstlisting}
+	TIM1->SMCR  = 0;	//Internal clock, 8MHz	
+	TIM1->PSC	= 999;	//Prescalar, dividing clock by 1000
+	TIM1->CR1 	= 0x0001;	//enable Timer1
+	TIM1->ARR 	= 999;	//Load Count
+	TIM1->RCR 	= 3;	//Load Repetition Count	
+\end{lstlisting}
+lead to
+{\footnotesize
+\begin{multline}
+\frac{HSI\_CLK}{\brak{TIM1->PSC + 1}\brak{TIM1->ARR + 1}\brak{TIM1->RCR + 1}} 
+\\
+= \frac{8000000}{4000\times 1000} = 2 \text{ Hz}
+\end{multline}
+}
+TIM1$->$RCR keeps track of the number of times the counter has overflowed. Fig. \ref{fig:rcr} shows the repetition counter register.
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=\columnwidth]{./figs/rcr.eps}
+\end{center}
+\caption{Repition Counter (RCR)}
+\label{fig:rcr}
+\end{figure}
+\begin{problem}
+What is the maximum value of TIM1$->$RCR?
+\end{problem}
+\begin{problem}
+What is the function of TIM1$->$SR?
+\end{problem}
+\solution The status register (SR) is shown in Fig. \ref{fig:sr}. The UIF flag is 1 if the RCR overflows.
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=\columnwidth]{./figs/sr.eps}
+\end{center}
+\caption{Staus Register (SR)}
+\label{fig:sr}
+\end{figure}
+
+\section{TIM2}
+\begin{problem}
+Blink an LED with TIM2.
+\end{problem}
+\solution 
+\begin{lstlisting}
+https://github.com/gadepall/STM32F103C8T6/blob/master/examples/timer/timer2_blink.c	
+\end{lstlisting}
+\begin{problem}
+In the above code, 
+\begin{lstlisting}
+RCC->APB1ENR |= RCC_APB1ENR_TIM2EN;
+\end{lstlisting}
+is used for enabling TIM2. Note that for TIM1, APB2 was used instead of APB1 in Problem \ref{prob:APB2_TIM1}.  Explain.
+\end{problem}
+\solution Advanced Peripheral Bus 1 (APB1) and Advanced Peripheral Bus 2 (APB2) are connected to the Direct Memory Access (DMA) module, SRAM, peripherals like GPIOs, ADC, timers, etc. and Cortex core. APB1 has a maximum operating frequency of 36MHz while the maximum operating frequency of APB2  is 72MHz. That is why GPIOs are connected to APB2 bus instead of APB1 or any other bus and STM32 GPIOs can achieve 50MHz switching speed. APB1 bus mostly serves communication and timer modules of the STM32. 
+\begin{problem}
+Mention any major difference between TIM1 and TIM2.
+\end{problem}
+\solution TIM1 is an advanced timer while TIM2 is a general purpose timer.  One major difference between the two is that TIM2 does not have RCR.
+\section{Master-Slave Configuration}
+\subsection{Blink}
+\begin{problem}
+Execute the following program.
+\begin{lstlisting}
+https://github.com/gadepall/STM32F103C8T6/blob/master/examples/timer/master1_slave2_blink.c
+\end{lstlisting}
+\end{problem}
+\begin{problem}
+List the instructions for setting up TIM1 as master and TIM2 as slave. TIM1 should be a prescalar for TIM2.
+\end{problem}
+\solution The MMS bits can be seen in the CR2 register is shown in Fig. \ref{fig:cr2}. The TS and SMS bits are visible in the SMCR register
+in Fig. \ref{fig:smcr}. 
+\begin{lstlisting}
+TIM1->CR2	= 0x0020;//MMS = 010
+TIM2->SMCR	= 0x0007;//TS = 000, SMS = 111	
+\end{lstlisting}
+%
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=\columnwidth]{./figs/cr2.eps}
+\end{center}
+\caption{Control Register 2 (CR2)}
+\label{fig:cr2}
+\end{figure}
+%
+\subsection{Decade Counter}
+\begin{problem}
+Execute the following program.
+\begin{lstlisting}
+https://github.com/gadepall/STM32F103C8T6/blob/master/examples/timer/decade_counter.c
+\end{lstlisting}
+\end{problem}
+%
+\begin{problem}
+If TIM2$->$ARR = 9, TIM2$->$CNT = ?
+\end{problem}
+\solution TIM2$->$CNT = 0, 1, \dots, 9, 0,\dots, 9,\dots The counting rate depends on the PCR, ARR, RCR registers of TIM1 and the PCR
+and ARR registers of TIM2.
+
 %\section{Hardware}
 %
 %%\subsection{Seven Segment Display}
