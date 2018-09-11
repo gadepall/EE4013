@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=latex 2018.7.30)  6 SEP 2018 14:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=latex 2018.7.30)  9 SEP 2018 20:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -977,7 +977,9 @@ ABD: EveryShipout initializing macros
 \c@example=\count172
 \c@definition=\count173
 \c@rem=\count174
-LaTeX Font Info:    Calculating math sizes for size <14> on input line 270.
+File: iith_logo.eps Graphic file (type eps)
+ <iith_logo.eps>
+LaTeX Font Info:    Calculating math sizes for size <24> on input line 270.
 LaTeX Font Info:    Try loading font information for U+rsfs on input line 270.
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
@@ -1007,37 +1009,37 @@ LaTeX Font Info:    Try loading font information for U+txsyc on input line 270.
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
 )
-(./gvv_stm32_timer.toc)
+File: tlc.eps Graphic file (type eps)
+ <tlc.eps>
+LaTeX Font Info:    Calculating math sizes for size <14> on input line 270.
+File: iith_logo.eps Graphic file (type eps)
+
+<iith_logo.eps>
+File: tlc.eps Graphic file (type eps)
+ <tlc.eps>
+File: iith_logo.eps Graphic file (type eps)
+ <iith_logo.eps>
+File: tlc.eps Graphic file (type eps)
+ <tlc.eps> (./gvv_stm32_timer.toc)
 \tf@toc=\write5
 \openout5 = `gvv_stm32_timer.toc'.
 
- (./figs/components.tex
+
+(./figs/components.tex
 \gnumericTableWidth=\skip69
 \gnumericTableWidthComplete=\skip70
 \gnumericMultiRowLength=\skip71
 \gnumericColA=\skip72
 \gnumericColB=\skip73
 \gnumericColC=\skip74
-)
-Underfull \hbox (badness 1776) in paragraph at lines 286--287
-[][][][]\OT1/txr/bx/n/12 Problem 1.1. []\OT1/txr/m/n/12 List all avail-able clo
-cks in the
- []
-
-(./figs/clocks.tex
-\gnumericColD=\skip75
-)
+) (./figs/stm32_timers.tex)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-(./figs/stm32_timers.tex)
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-(./figs/systick_pins.tex) [1
+(./figs/systick_pins.tex) (./figs/systick_reg.tex) [1
 
 
-] (./figs/systick_reg.tex)
+]
 LaTeX Font Info:    Try loading font information for OML+txr on input line 347.
 
 
@@ -1093,12 +1095,12 @@ Package rerunfilecheck Info: File `gvv_stm32_timer.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 718.
  ) 
 Here is how much of TeX's memory you used:
- 21107 strings out of 494946
- 379774 string characters out of 6181058
- 534153 words of memory out of 5000000
- 24002 multiletter control sequences out of 15000+600000
- 66676 words of font info for 165 fonts, out of 8000000 for 9000
+ 21131 strings out of 494946
+ 380168 string characters out of 6181058
+ 538153 words of memory out of 5000000
+ 24027 multiletter control sequences out of 15000+600000
+ 73591 words of font info for 187 fonts, out of 8000000 for 9000
  17 hyphenation exceptions out of 8191
- 55i,14n,54p,540b,1342s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,14n,54p,540b,1459s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on gvv_stm32_timer.dvi (4 pages, 58148 bytes).
+Output written on gvv_stm32_timer.dvi (4 pages, 56376 bytes).
