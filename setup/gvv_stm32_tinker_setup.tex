@@ -289,8 +289,8 @@ telnet localhost 4444
 This will establish a connection between the RPI and STM32
 \item Open another new terminal and type
 \begin{lstlisting}
-cp ~/sandbox/STM32F103C8T6/examples/blink.c ~/sandbox/STM32F103C8T6/main.c
-sudo make
+cp ~/sandbox/STM32F103C8T6/examples/blink.c ~/sandbox/STM32F103C8T6/src/main.c
+sudo make bin
 cp main.bin cd ~/sandbox/openocd
 \end{lstlisting}
 \item Make sure that the two pin caps (Boot0 and Boot1) beside the reset button are non-aligned.

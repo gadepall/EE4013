@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=latex 2018.7.30)  29 AUG 2018 14:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=latex 2018.7.30)  12 SEP 2018 11:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -902,4 +902,4 @@ Here is how much of TeX's memory you used:
  17 hyphenation exceptions out of 8191
  55i,12n,54p,403b,1421s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on gvv_stm32_tinker_setup.dvi (3 pages, 20328 bytes).
+Output written on gvv_stm32_tinker_setup.dvi (3 pages, 20372 bytes).
