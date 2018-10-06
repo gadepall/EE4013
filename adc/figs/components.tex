@@ -145,15 +145,11 @@
 %%                                                                  %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\ifthenelse{\isundefined{\gnumericColA}}{\newlength{\gnumericColA}}{}\settowidth{\gnumericColA}{\begin{tabular}{@{}p{100pt*\gnumericScale}@{}}x\end{tabular}}
-\ifthenelse{\isundefined{\gnumericColB}}{\newlength{\gnumericColB}}{}\settowidth{\gnumericColB}{\begin{tabular}{@{}p{50pt*\gnumericScale}@{}}x\end{tabular}}
-\ifthenelse{\isundefined{\gnumericColC}}{\newlength{\gnumericColC}}{}\settowidth{\gnumericColC}{\begin{tabular}{@{}p{70pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColA}}{\newlength{\gnumericColA}}{}\settowidth{\gnumericColA}{\begin{tabular}{@{}p{133pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColB}}{\newlength{\gnumericColB}}{}\settowidth{\gnumericColB}{\begin{tabular}{@{}p{53pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColC}}{\newlength{\gnumericColC}}{}\settowidth{\gnumericColC}{\begin{tabular}{@{}p{57pt*\gnumericScale}@{}}x\end{tabular}}
 
-%\begin{longtable}[c]{%
-\begin{table}[!h]
-
-
-\begin{tabular}[c]{
+\begin{tabular}[c]{%
 	b{\gnumericColA}%
 	b{\gnumericColB}%
 	b{\gnumericColC}%
@@ -195,25 +191,36 @@
 	 \multicolumn{1}{|p{\gnumericColA}|}%
 	{\gnumericPB{\centering}\textbf{Component}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\raggedright}\textbf{Value}}
+	{\gnumericPB{\centering}\textbf{Value}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
 	{\gnumericPB{\centering}\textbf{Quantity}}
 \\
 \hhline{|---|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\centering}Breadboard}
+	{\setlength{\gnumericMultiRowLength}{0pt}%
+	 \addtolength{\gnumericMultiRowLength}{\gnumericColA}%
+	 \multirow{2}[1]{\gnumericMultiRowLength}{\parbox{\gnumericMultiRowLength}{%
+	 \gnumericPB{\centering}Resistor}}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\raggedright}}
+	{\gnumericPB{\centering}220 Ohm}
 	&\multicolumn{1}{p{\gnumericColC}|}%
 	{\gnumericPB{\centering}1}
-%\\
-%\hhline{|---|}
-%	 \multicolumn{1}{|p{\gnumericColA}|}%
-%	{\gnumericPB{\centering}Resistor}
-%	&\multicolumn{1}{p{\gnumericColB}|}%
-%	{\gnumericPB{\raggedright}220 $\Omega$}
-%	&\multicolumn{1}{p{\gnumericColC}|}%
-%	{\gnumericPB{\centering}1}
+\\
+\hhline{~|--|}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\centering}1K}
+	&\multicolumn{1}{p{\gnumericColC}|}%
+	{\gnumericPB{\centering}1}
+\\
+\hhline{|---|}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\centering}Breadboard}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{}
+	&\multicolumn{1}{p{\gnumericColC}|}%
+	{\gnumericPB{\centering}1}
 \\
 \hhline{|---|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
@@ -222,61 +229,44 @@
 	{}
 	&\multicolumn{1}{p{\gnumericColC}|}%
 	{\gnumericPB{\centering}1}
-%\\
-%\hhline{|---|}
-%	 \multicolumn{1}{|p{\gnumericColA}|}%
-%	{\gnumericPB{\centering}Seven Segment Display}
-%	&\multicolumn{1}{p{\gnumericColB}|}%
-%	{Common Anode}
-%	&\multicolumn{1}{p{\gnumericColC}|}%
-%	{\gnumericPB{\centering}1}
-%\\
-%\hhline{|---|}
-%	 \multicolumn{1}{|p{\gnumericColA}|}%
-%	{\gnumericPB{\centering}Decoder}
-%	&\multicolumn{1}{p{\gnumericColB}|}%
-%	{\gnumericPB{\raggedright}7447}
-%	&\multicolumn{1}{p{\gnumericColC}|}%
-%	{\gnumericPB{\centering}1}
-%\\
-%\hhline{|---|}
-%	 \multicolumn{1}{|p{\gnumericColA}|}%
-%	{\gnumericPB{\centering}\gnumbox{Flip Flop}}
-%	&\multicolumn{1}{p{\gnumericColB}|}%
-%	{\gnumericPB{\raggedright}\gnumbox[l]{7474}}
-%	&\multicolumn{1}{p{\gnumericColC}|}%
-%	{\gnumericPB{\centering}\gnumbox{2}}
 \\
 \hhline{|---|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\centering}\gnumbox{LCD}}
+	{\gnumericPB{\centering}LCD}
 	&\multicolumn{1}{p{\gnumericColB}|}%
-	{$16 \times 2$ HD44780}
+	{\gnumericPB{\centering}16 x 2 HD44780}
 	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\centering}\gnumbox{1}}
-
+	{\gnumericPB{\centering}1}
 \\
 \hhline{|---|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\centering}\gnumbox{Jumper Wires}}
+	{\setlength{\gnumericMultiRowLength}{0pt}%
+	 \addtolength{\gnumericMultiRowLength}{\gnumericColA}%
+	 \multirow{3}[1]{\gnumericMultiRowLength}{\parbox{\gnumericMultiRowLength}{%
+	 \gnumericPB{\centering}Jumper Wires}}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
-	{F-F}
+	{\gnumericPB{\centering}M-F}
 	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\centering}\gnumbox{20}}
+	{\gnumericPB{\centering}20}
 \\
-\hhline{|---|}
+\hhline{~|--|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\centering}\gnumbox{Jumper Wires}}
+	{}
 	&\multicolumn{1}{p{\gnumericColB}|}%
-	{M-F}
+	{\gnumericPB{\centering}F-F}
 	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\centering}\gnumbox{20}}
+	{\gnumericPB{\centering}5}
+\\
+\hhline{~|--|}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\centering}M-M}
+	&\multicolumn{1}{p{\gnumericColC}|}%
+	{\gnumericPB{\centering}5}
 \\
 \hhline{|-|-|-|}
-%\end{longtable}
 \end{tabular}
-\caption{Components}
-\label{table:components}
-\end{table}
+
 \ifthenelse{\isundefined{\languageshorthands}}{}{\languageshorthands{\languagename}}
 \gnumericTableEnd

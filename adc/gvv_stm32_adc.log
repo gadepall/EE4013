@@ -1,6 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=latex 2018.7.30)  28 SEP 2018 13:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=latex 2018.7.30)  6 OCT 2018 09:47
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
 **gvv_stm32_adc.tex
 (./gvv_stm32_adc.tex
@@ -880,12 +881,13 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 )
-No file gvv_stm32_adc.aux.
+(./gvv_stm32_adc.aux)
 \openout1 = `gvv_stm32_adc.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 102.
 LaTeX Font Info:    Try loading font information for OML+txmi on input line 102
 .
+
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omltxmi.fd
 File: omltxmi.fd 2000/12/15 v3.1
 )
@@ -961,14 +963,13 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 102.
 LaTeX Info: Redefining \pageref on input line 102.
 LaTeX Info: Redefining \nameref on input line 102.
+
+(./gvv_stm32_adc.out) (./gvv_stm32_adc.out)
 \@outlinefile=\write4
 \openout4 = `gvv_stm32_adc.out'.
 
-
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
-
 \c@lstlisting=\count167
+
 ABD: EveryShipout initializing macros
 \c@theorem=\count168
 \c@problem=\count169
@@ -1009,7 +1010,6 @@ LaTeX Font Info:    Try loading font information for U+txsyc on input line 270.
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Calculating math sizes for size <17> on input line 270.
 File: tlc.eps Graphic file (type eps)
  <tlc.eps>
 LaTeX Font Info:    Calculating math sizes for size <14> on input line 270.
@@ -1021,94 +1021,78 @@ File: tlc.eps Graphic file (type eps)
 File: iith_logo.eps Graphic file (type eps)
  <iith_logo.eps>
 File: tlc.eps Graphic file (type eps)
- <tlc.eps>
+ <tlc.eps> (./gvv_stm32_adc.toc)
 \tf@toc=\write5
 \openout5 = `gvv_stm32_adc.toc'.
 
- (./figs/components.tex
+
+(./figs/components.tex
 \gnumericTableWidth=\skip69
 \gnumericTableWidthComplete=\skip70
 \gnumericMultiRowLength=\skip71
 \gnumericColA=\skip72
 \gnumericColB=\skip73
 \gnumericColC=\skip74
-
-Underfull \hbox (badness 10000) in paragraph at lines 254--254
-[]|$\OT1/txr/m/n/12 16 \OMS/txsy/m/n/12 ^^B \OT1/txr/m/n/12 2$
- []
-
-
-Overfull \hbox (3.13016pt too wide) in paragraph at lines 254--254
-\OT1/txr/m/n/12 HD44780| 
- []
-
-)
-
-LaTeX Warning: Reference `table:pins' on page 1 undefined on input line 298.
-
-(./figs/pins.tex
+) (./figs/pins.tex
 \gnumericColD=\skip75
 \gnumericColE=\skip76
 )
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-LaTeX Font Info:    Try loading font information for OMS+txr on input line 327.
+(./figs/sensor.tex [1
 
-(/usr/share/texlive/texmf-dist/tex/latex/txfonts/omstxr.fd
-File: omstxr.fd 2000/12/15 v3.1
-)
-LaTeX Font Info:    Font shape `OMS/txr/m/n' in size <12> not available
-(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 327.
-LaTeX Font Info:    Try loading font information for OML+txr on input line 329.
+
+])
+LaTeX Font Info:    Try loading font information for OML+txr on input line 349.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omltxr.fd
 File: omltxr.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `OML/txr/m/n' in size <12> not available
-(Font)              Font shape `OML/txmi/m/it' tried instead on input line 329.
+(Font)              Font shape `OML/txmi/m/it' tried instead on input line 349.
 
- [1
+LaTeX Font Info:    Try loading font information for OMS+txr on input line 349.
 
 
-]
-Underfull \hbox (badness 4024) in paragraph at lines 370--371
-[]\OT1/txr/m/n/12 Develop an arith-metic cal-cu-la-tor us-ing the
+(/usr/share/texlive/texmf-dist/tex/latex/txfonts/omstxr.fd
+File: omstxr.fd 2000/12/15 v3.1
+)
+LaTeX Font Info:    Font shape `OMS/txr/m/n' in size <12> not available
+(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 349.
+File: ./figs/smpr1.eps Graphic file (type eps)
+ <./figs/smpr1.eps>
+Underfull \hbox (badness 2065) in paragraph at lines 352--363
+\OT1/txr/bx/n/12 Solution: \OT1/txr/m/n/12 Through this com-mand, $\OML/txmi/m/
+it/12 ADC\OT1/txr/m/n/12 1\OMS/txsy/m/n/12 ^^@ \OML/txmi/m/it/12 >
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 371.
-[2
-
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 371.
+File: ./figs/sqr3.eps Graphic file (type eps)
+<./figs/sqr3.eps> (./figs/pin_channel.tex
+\gnumericColF=\skip77
+\gnumericColG=\skip78
+\gnumericColH=\skip79
+\gnumericColI=\skip80
+\gnumericColJ=\skip81
+\gnumericColK=\skip82
+) [2]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 426.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 426.
  (./gvv_stm32_adc.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 371.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 371.
-
-
-Package rerunfilecheck Warning: File `gvv_stm32_adc.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `gvv_stm32_adc.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  4B40CD4F8FB55F2AC6CFD8A7420E2997;173.
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 371.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 426.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 426.
+Package rerunfilecheck Info: File `gvv_stm32_adc.out' has not changed.
+(rerunfilecheck)             Checksum: 160B3A1D25F9B6AA79FB66D277A682FF;214.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 426.
  ) 
 Here is how much of TeX's memory you used:
- 21088 strings out of 494946
- 379722 string characters out of 6181058
- 512153 words of memory out of 5000000
- 24005 multiletter control sequences out of 15000+600000
- 85049 words of font info for 224 fonts, out of 8000000 for 9000
+ 21077 strings out of 494946
+ 379504 string characters out of 6181058
+ 497153 words of memory out of 5000000
+ 23978 multiletter control sequences out of 15000+600000
+ 75700 words of font info for 195 fonts, out of 8000000 for 9000
  17 hyphenation exceptions out of 8191
- 55i,11n,54p,410b,1264s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,13n,54p,410b,1342s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on gvv_stm32_adc.dvi (2 pages, 24464 bytes).
+Output written on gvv_stm32_adc.dvi (2 pages, 29608 bytes).
