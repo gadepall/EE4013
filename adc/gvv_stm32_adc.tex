@@ -390,6 +390,7 @@ The inputs are called {\em channels} and the sequence number corresponding
 to the channel
 is decided
 according to the 5 bit entry in SQ. 
+\section{Measuring an Unkown Resistance}
 \begin{problem}
 Configure SQR3 so that the 9th channel for ADC1 is 2nd in sequence.
 \end{problem}
@@ -397,7 +398,6 @@ Configure SQR3 so that the 9th channel for ADC1 is 2nd in sequence.
 \begin{equation}
 ADC1->SQR3 = 0x000000120
 \end{equation}
-\section{Measuring an Unkown Resistance}
 \begin{problem}
 List the various pin numbers corresponding to the different channels 
 of the ADC.
@@ -412,9 +412,12 @@ of the ADC.
 \begin{problem}
 Use the 9th channel of  ADC1 in SQ2 to measure 3.3V. 
 \end{problem}
-\solution connect PB1 to 3.3 V of the STM 32 and execute the following
+\solution Connect PB1 (Fig. \ref{table:pin_channel}) to 3.3 V of the STM 32 and execute the following
 code.
-\section{Project}
+\begin{lstlisting}
+https://github.com/gadepall/STM32F103C8T6/blob/master/examples/adc/3_3V.c
+\end{lstlisting}
+%\section{Project}
 \begin{problem}
 Measure an unkown resistance using the STM32 and display the result 
 on the LCD.
