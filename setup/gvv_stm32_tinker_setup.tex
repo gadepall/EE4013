@@ -238,8 +238,29 @@ Connect the STLINK to a USB port of the Raspberry Pi.  The hardware connections 
 \caption{STLINK-STM32 connections}
 \label{table:pins}
 \end{table}
-\subsection{RPI GPIO}
-The hardware connections between the RPI GPIO pins and STM32 are available in Table \ref{table:raspstm}.
+\subsection{RPI  GPIO}
+On the RPi, type
+\begin{lstlisting}
+pinout
+\end{lstlisting}
+%
+This will give the GPIO pin configuration on the RPi. Now open
+\begin{lstlisting}
+nano /usr/local/share/openocd/scripts/interface/sysfsgpio-raspberrypi.cfg
+\end{lstlisting}
+%
+and verify that the file contains the lines (at different locations)
+\begin{lstlisting}
+# Each of the SWD lines need a gpio number set: swclk swdio
+# Header pin numbers: 23 22
+sysfsgpio_swd_nums 11 25
+
+# Header pin numbers: TRST - 26, SRST - 18
+sysfsgpio_srst_num 24
+reset_config srst_only srst_push_pull
+\end{lstlisting}
+%
+Note that the above configuration was obtained for an \textbf{RPi Zero W}. It may be different for other RPis.  Remove the \# before the  lines, if necessary.  These lines provide information on the pin connections between the Rpi and STM32 as shown in Table \ref{table:raspstm}.
 \begin{table}[!h]
 \centering
 %\resizebox{0.52\columnwidth}{!}{%
@@ -248,13 +269,15 @@ The hardware connections between the RPI GPIO pins and STM32 are available in Ta
 \textbf{Raspberry Pi} & \textbf{STM32} \\ \hline
 GND (Pin 6)           & GND            \\ \hline
 3.3V (Pin 1)          & 3.3V           \\ \hline
-GPIO 24               & SWDIO           \\ \hline
-GPIO 25               & SCLK           \\ \hline
-GPIO 18               & RESET          \\ \hline
+GPIO 25 (Pin 22)               & SWDIO           \\ \hline
+GPIO 11 (Pin 11)               & SWCLK           \\ \hline
+GPIO 24 (Pin 18)               & RESET          \\ \hline
 \end{tabular}%
+%
 \caption{Raspberry Pi and STM32 Connections}
 \label{table:raspstm}
 \end{table}
+The pin numbers for RPi in the above table will be different for different RPis based on \textbf{sysfsgpio-raspberrypi.cfg}.
 
 \begin{figure}[!h]
 \centering
@@ -282,7 +305,8 @@ If only RPI GPIO is used, then
 \begin{lstlisting}
 cd ~/sandbox/openocd
 cp ~/sandbox/STM32F103C8T6/refs/openocd.cfg ~/sandbox/openocd
-sudo openocd 
+sudo openocd -f /usr/local/share/openocd/scripts/interface/sysfsgpio-raspberrypi.cfg -c 
+"transport select swd" -c "adapter_khz 1000" -f /usr/local/share/openocd/scripts/target/stm32f1x.cfg
 \end{lstlisting}
 \item Open a new terminal and type
 \begin{lstlisting}
@@ -295,7 +319,16 @@ cp ~/sandbox/STM32F103C8T6/examples/blink.c ~/sandbox/STM32F103C8T6/src/main.c
 sudo make bin
 cp main.bin cd ~/sandbox/openocd
 \end{lstlisting}
-\item Make sure that the two pin caps (Boot0 and Boot1) beside the reset button are non-aligned.
+Ensure that the following lines in the Makefile 
+\begin{lstlisting}
+CC= /data/data/com.termux/files/home/gcc-arm-none-eabi-8-2019-q3-update/install-native/bin/arm-none-eabi-gcc
+OBJCOPY	= /data/data/com.termux/files/home/gcc-arm-none-eabi-8-2019-q3-update/install-native/bin/arm-none-eabi-objcopyOBJDUMP    = /data/data/com.termux/files/home/gcc-arm-none-eabi-8-2019-q3-update/install-native/bin/arm-none-eabi-objdump
+/data/data/com.termux/files/home/gcc-arm-none-eabi-8-2019-q3-update/install-native/bin/arm-none-eabi-size $(PRJ_NAME).elf
+\end{lstlisting}
+%
+are suitably modified based on the path in your OS.
+
+%\item Make sure that the two pin caps (Boot0 and Boot1) beside the reset button are non-aligned.
 \item Go to the telnet terminal 
 \begin{lstlisting}
 reset halt
